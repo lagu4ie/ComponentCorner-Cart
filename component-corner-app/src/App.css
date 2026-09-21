@@ -197,3 +197,61 @@
 #products h2 {
   text-align: center;
 }
+
+/* AI-generated CSS: Shopping cart layout and styling. */
+.shopping-cart {
+  margin: 40px auto;
+  padding: 25px;
+  max-width: 900px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shopping-cart h2 {
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.cart-item h3 {
+  margin: 0 0 5px;
+}
+
+.cart-item p {
+  margin: 0;
+}
+
+.cart-item button {
+  padding: 8px 14px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  background-color: #b02a37;
+}
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 24px;
+  font-weight: bold;
+}
