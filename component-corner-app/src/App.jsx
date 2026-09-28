@@ -1,21 +1,22 @@
 import { useState } from "react";
 import Header from "./components/Header";
+import Hero from "./components/Hero";
 import ProductCard from "./components/ProductCard";
 import CartItem from "./components/CartItem";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  // Step 3: Create cart state
   const [cart, setCart] = useState([]);
 
-  // Step 2: Products data array
   const products = [
     {
       id: 1,
       name: "Wireless Headphones",
       price: 99.99,
       image: "https://placehold.co/600x400",
-      description: "Premium noise-cancelling headphones with 30-hour battery life"
+      description:
+        "Premium noise-cancelling headphones with 30-hour battery life"
     },
     {
       id: 2,
@@ -54,7 +55,6 @@ function App() {
     }
   ];
 
-  // Step 4: Add product to cart
   const addToCart = (product) => {
     setCart((previousCart) => [
       ...previousCart,
@@ -63,18 +63,14 @@ function App() {
         cartId: crypto.randomUUID()
       }
     ]);
-
-    console.log("Added to cart:", product);
   };
 
-  // Step 11: Remove a specific cart item using filter
   const removeFromCart = (cartId) => {
     setCart((previousCart) =>
       previousCart.filter((item) => item.cartId !== cartId)
     );
   };
 
-  // Step 12: Calculate total using reduce
   const cartTotal = cart.reduce(
     (total, item) => total + item.price,
     0
@@ -82,16 +78,20 @@ function App() {
 
   return (
     <div id="home">
-      {/* Step 7: Pass cart count to Header */}
       <Header
         storeName="ComponentCorner"
         cartCount={cart.length}
       />
 
+      <Hero
+        title="Welcome to ComponentCorner"
+        subtitle="Find quality electronics at affordable prices."
+        buttonText="Shop Now"
+      />
+
       <main id="products">
         <h2>Featured Products</h2>
 
-        {/* Step 5: Display products using map */}
         <div className="products">
           {products.map((product) => (
             <ProductCard
@@ -105,16 +105,13 @@ function App() {
           ))}
         </div>
 
-        {/* Step 10: Shopping cart section */}
         <section className="shopping-cart" id="cart">
           <h2>Shopping Cart ({cart.length})</h2>
 
-          {/* Step 13: Handle empty cart */}
           {cart.length === 0 ? (
             <p>Your cart is empty.</p>
           ) : (
             <>
-              {/* Display cart items using map */}
               <div className="cart-items">
                 {cart.map((item) => (
                   <CartItem
@@ -125,7 +122,6 @@ function App() {
                 ))}
               </div>
 
-              {/* Display total */}
               <h3 className="cart-total">
                 Total: ${cartTotal.toFixed(2)}
               </h3>
@@ -133,6 +129,11 @@ function App() {
           )}
         </section>
       </main>
+
+      <Footer
+        storeName="ComponentCorner"
+        email="contact@componentcorner.com"
+      />
     </div>
   );
 }
